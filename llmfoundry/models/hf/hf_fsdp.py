@@ -119,7 +119,9 @@ def prepare_hf_causal_lm_model_for_fsdp(model: PreTrainedModel) -> None:
     if isinstance(causal_base_model, OPTDecoder):
         model.model._fsdp_wrap = False
     model_block = hf_get_hidden_layers(model)  # type: ignore
-    lm_head = model.get_output_embeddings()
+    # TODO: only necessary for openlm
+    #lm_head = model.get_output_embeddings()
+    lm_head = model.model.output
     # some models (OPT) implement .get_input_embeddings for the causal subclass
     # but all of them implement it for the base model
     tied_embeddings = causal_base_model.get_input_embeddings()  # type: ignore
