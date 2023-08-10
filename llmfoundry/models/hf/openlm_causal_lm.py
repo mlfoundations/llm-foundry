@@ -12,8 +12,8 @@ from composer.metrics.nlp import (InContextLearningLMAccuracy,
                                   InContextLearningQAAccuracy,
                                   LanguageCrossEntropy, LanguagePerplexity)
 from omegaconf import DictConfig
-from src.utils.transformers.config import OpenLMConfig
-from src.utils.transformers.model import OpenLMforCausalLM
+from open_lm.utils.transformers.config import OpenLMConfig
+from open_lm.utils.transformers.model import OpenLMforCausalLM
 from transformers import (PreTrainedTokenizer,
                           PreTrainedTokenizerFast)
 
